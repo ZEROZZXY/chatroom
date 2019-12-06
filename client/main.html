@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ZERO-聊天室</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./cookie.js"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="chat-room">
+        <div class="people-list" id="people-list">
+            <!-- <div class="search">
+                <input type="text" placeholder="search" />
+                <i class="fa fa-search"></i>
+            </div> -->
+            <div class="online-list">
+                在线列表
+            </div>
+            <ul class="list">
+                <!-- <li class="clearfix">
+                    <img src="images/1.png" alt="" />
+                    <div class="about">
+                        <div class="name">ZERP</div>
+                        <div class="status">
+                            <i class="online"></i> online
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <img src="images/2.png" alt="" />
+                    <div class="about">
+                        <div class="name">Aiden Chavez</div>
+                        <div class="status">
+                            <i class="online"></i> online
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+        <div class="chat">
+            <div class="chat-header clearfix">
+                <div class="chat-about">
+                    <div class="chat-with">欢迎来到ZERO的聊天室</div>
+                    <div class="chat-num-messages">在线人数：<i>0</i>人</div>
+                </div>
+            </div>
+            <div class="chat-history">
+                <ul class="chat-list">
+                    <!-- <p>提示：用户<em>ZERO</em>离开了聊天室</p>
+                    <li class="clearfix">
+                        <div class="message-data align-right other-message-data">
+                            <span class="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
+                            <span class="message-data-name">Olia</span>
+                            <img src="./images/1.png" alt="">
+                        </div>
+                        <div class="message other-message float-right">
+                            1
+                        </div>
+                    </li>
+                    <p>提示：用户<em>ZERO</em>离开了聊天室</p>
+                    <li>
+                        <div class="message-data">
+                            <img src="./images/1.png" alt="">
+                            <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+                            <span class="message-data-time">10:12 AM, Today</span>
+                        </div>
+                        <div class="message my-message">
+                            12
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="message-data align-right other-message-data">
+                            <span class="message-data-time">10:14 AM, Today</span> &nbsp; &nbsp;
+                            <span class="message-data-name">Olia</span> <i class="fa fa-circle me"></i>
+                        </div>
+                        <div class="message other-message float-right">
+                            Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?
+                        </div>
+                    </li> -->
+                    <!-- <li>
+                        <div class="message-data">
+                            <span class="message-data-name"></i> Vincent</span>
+                            <span class="message-data-time">10:20 AM, Today</span>
+                        </div>
+                        <div class="message my-message">
+                            Actually everything was fine. I'm very excited to show this to our team.
+                        </div>
+                    </li> -->
+
+                </ul>
+            </div>
+            <div class="chat-message clearfix">
+                <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+                <!-- <i class="fa fa-file-o"></i>
+                <i class="fa fa-file-image-o"></i> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="ws.js"></script>
+    <script>
+        // 权限
+        if (!cookie.get('username')) {
+            alert("请先登录");
+            location.href = './index.html';
+        }
+
+        //发送数据
+        $('#message-to-send').on('keydown', function(ev) {
+
+            var msg = $('#message-to-send').val();
+            var username = cookie.get('username');
+            var photo = cookie.get('photo');
+            if (ev.keyCode === 13) {
+                ev.preventDefault();
+                let data = {
+                    "username": username,
+                    "msg": msg,
+                    "photo": photo
+                };
+                ws.send(JSON.stringify(data));
+                $('#message-to-send').val('');
+            }
+        })
+    </script>
+
+</body>
+
+</html>

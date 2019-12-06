@@ -1,0 +1,277 @@
+* {
+    transition: all 0.8s
+}
+
+body {
+    perspective: 800;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    background: #000
+}
+
+.main {
+    width: 100%;
+    height: 400px;
+    background: #fff;
+    margin: 10% auto;
+    background: #000
+}
+
+.bg {
+    width: 100%;
+    height: 400px;
+    background: #2af8c0;
+    background: linear-gradient(#2af8c0, #a0f4dd);
+    margin: 0 auto;
+    overflow: hidden;
+    opacity: .7;
+    position: absolute
+}
+
+.f div {
+    margin-top: 400px
+}
+
+.main h2 {
+    width: 300px;
+    height: 40px;
+    margin: 0 auto;
+    padding: 60px 0 0;
+    color: #fff;
+    font-size: 30px
+}
+
+.main h2 span {
+    opacity: 0;
+}
+
+.main h2 span i {
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation-name: b;
+    animation-iteration-count: infinite;
+    animation-play-state: paused
+}
+
+.main h2 span i:nth-of-type(1) {
+    animation-duration: 1.05s
+}
+
+.main h2 span i:nth-of-type(2) {
+    animation-duration: 1.1s
+}
+
+.main h2 span i:nth-of-type(3) {
+    animation-duration: 1.15s
+}
+
+@keyframes b {
+    50% {
+        opacity: 0
+    }
+}
+
+.content {
+    width: 600px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 30px 0;
+    transform: translate(0px, 0px);
+    display: block
+}
+
+input {
+    width: 180px;
+    height: 30px;
+    display: block;
+    opacity: .5;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 10px auto;
+    transform: translate(0px, 0px)
+}
+
+input:hover {
+    width: 220px;
+    height: 30px;
+    opacity: 1;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center
+}
+
+.btn {
+    margin: 10px 200px;
+    width: 200px;
+    height: 40px;
+    background: #ccc;
+    text-align: center;
+    line-height: 40px;
+    background: #fff;
+    border-radius: 5px;
+    color: #00f0af;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+}
+
+@keyframes a {
+    0% {}
+    25% {}
+    50% {
+        transform: rotatez(365deg)
+    }
+    75% {
+        margin: -400px 0 0 0
+    }
+    100% {}
+}
+
+
+/* 选择头像 */
+
+* {
+    text-decoration: none;
+}
+
+.photo {
+    position: relative;
+}
+
+.my_box {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    cursor: pointer;
+    position: absolute;
+    right: 100px;
+    top: 0px;
+}
+
+.my_box img {
+    width: 100%;
+}
+
+.xiantiao {
+    display: block;
+    width: 86%;
+    height: 1px;
+    border-bottom: 3px solid #ccc;
+    margin: 0 auto;
+}
+
+.pic_box {
+    padding: 10px 0;
+    width: 400px;
+    height: 520px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #ccc;
+    position: fixed;
+    top: -1400px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.header {
+    height: 45px;
+    text-align: center;
+    color: rgb(70, 53, 53);
+}
+
+.header p {
+    line-height: 50px;
+    font-weight: 900;
+}
+
+.close {
+    color: #000;
+    font-size: 21px;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    position: absolute;
+    right: 8px;
+    top: 2px;
+    cursor: pointer;
+}
+
+.pic_box ul {
+    padding: 0;
+    margin: 0;
+    width: 96%;
+    margin: 15px auto;
+    overflow: hidden;
+    padding: 0px 15px;
+}
+
+.pic_box ul li {
+    display: block;
+    list-style: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    float: left;
+    margin: 10px;
+    transition: .6s;
+    cursor: pointer;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.pic_box ul li:hover {
+    transform: scale(1.15);
+    transition: .5s;
+}
+
+.pic_box ul li img {
+    width: 100%;
+}
+
+.bt_box {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.bt_box .gb {
+    display: inline-block;
+    width: 110px;
+    height: 35px;
+    border-radius: 8px;
+    background: #d3d1d1;
+    color: #000;
+    line-height: 35px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.bt_box .gb:hover {
+    background-color: #a09b9b;
+    color: #fff;
+}
+
+.bt_box .queren {
+    display: inline-block;
+    width: 110px;
+    height: 35px;
+    border-radius: 8px;
+    background: rgb(11, 192, 177);
+    color: #fff;
+    line-height: 35px;
+    transition: 0.3s;
+}
+
+.bt_box .queren:hover {
+    background-color: rgb(8, 139, 129);
+}

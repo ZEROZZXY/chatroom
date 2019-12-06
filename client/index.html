@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ZERO-聊天室</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="./cookie.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".submit").click(function() {
+                var src = $(".my_pic").attr('src');
+                console.log(src);
+                cookie.set('photo', src);
+                cookie.set('username', $('.username').val());
+                $(".content").css("transform", "translate(0px,-260px)");
+                $(".content").css("opacity", "0");
+                $("h2").css("transform", "translate(0px,130px)");
+                $("h2 span").css("opacity", "1");
+                $("h2 span i").css("animation-play-state", "running");
+                setTimeout(function() {
+                    location.href = "./main.html";
+                }, 1200)
+            });
+
+            $('.username').on('keyup', function() {
+                if ($('.username').val() != '') {
+                    $('.username').addClass('data-true');
+                } else {
+                    $('.username').removeClass('data-true');
+                }
+
+                if ($('.data-true').length == 1) {
+                    $('.submit').removeAttr('disabled');
+                } else {
+                    $('.submit').attr('disabled', 'disabled');
+                }
+            });
+
+            //选择头像
+            $(".close,.gb").click(function() {
+                $(".pic_box").animate({
+                    'top': '-1400px'
+                }, 1);
+            });
+            $(".choose,.my_pic").click(function() {
+                $(".pic_box").animate({
+                    'top': '0px',
+                }, 1);
+            });
+            $(".queren").click(function() {
+                var src = $(".jide").val();
+                console.log(src);
+                if (src != "") {
+                    $(".my_pic").attr('src', src);
+                    $(".pic_box").animate({
+                        'top': '-1400px'
+                    }, 1);
+                } else {
+                    return false;
+                }
+            });
+            $('.img-list>li').on('click', function() {
+                $(this).css('border', '5px solid #df4f4f');
+                $(this).siblings().css('border', '3px solid transparent');
+            });
+            $(".pic_box li img").click(function() {
+                var src = $(this).attr("src");
+                $(".jide").val(src);
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bg">
+    </div>
+    <div class="main">
+        <h2>Welcome<span><i></i><i></i><i class="i"></i></span></h2>
+        <div class="content" id="content">
+            <input type="text" class="input username" placeholder="Username" />
+            <div class="photo">
+                <button class="choose btn">请选择你的头像</button>
+                <div class="my_box">
+                    <form id="uploadForm">
+                        <input class="jide" name="imgsrc" type="hidden" value="" />
+                        <img src="./images/1.png" class="my_pic" />
+                    </form>
+                </div>
+            </div>
+
+            <button class="submit btn" disabled="disabled">Login</button>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="pic_box" id="pic_box">
+            <div class="header">
+                <p>设置头像</p>
+                <span class="close">x</span>
+            </div>
+            <span class="xiantiao"></span>
+            <ul class="img-list">
+                <li><img src="./images/1.png" /></li>
+                <li><img src="./images/2.png" /></li>
+                <li><img src="./images/3.png" /></li>
+                <li><img src="./images/4.png" /></li>
+                <li><img src="./images/5.png" /></li>
+                <li><img src="./images/6.png" /></li>
+                <li><img src="./images/7.png" /></li>
+                <li><img src="./images/8.png" /></li>
+                <li><img src="./images/9.png" /></li>
+            </ul>
+            <div class="bt_box">
+                <a class="gb" href="javascript:">关闭</a>
+                <a class="queren" href="javascript:">保存头像</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
